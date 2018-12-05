@@ -1,0 +1,19 @@
+- name: Loops example 
+  hosts: all
+  vars:
+    a:
+      - 100
+      - 200
+  tasks:
+    - name: Print variable a
+      debug:
+        msg: "Value = {{a.0}}"
+
+    - name: Print variable a
+      debug:
+        msg: "Value = {{a.1}}"
+
+    - name: Loop can overcome this
+      debug:
+        msg: "Value = {{item}}"
+      loop: "{{a}}"

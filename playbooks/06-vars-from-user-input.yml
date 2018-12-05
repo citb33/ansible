@@ -1,0 +1,10 @@
+- name: Variable from files
+  hosts: all
+  vars_prompt:
+    - name: a
+      prompt: Enter value a
+      private: no
+  tasks: 
+    - name: Print a variable 
+      debug:
+        msg: "Value of a = {{a}}"

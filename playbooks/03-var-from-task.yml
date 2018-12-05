@@ -1,0 +1,8 @@
+- name: Variable on tasks
+  hosts: all
+  tasks: 
+    - name: Print a variable 
+      debug:
+        msg: "Value of a = {{a}}"
+      vars:
+        a: 10

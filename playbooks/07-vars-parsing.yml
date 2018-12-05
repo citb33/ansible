@@ -1,0 +1,6 @@
+- name: Variable from parsing the input to ansible-playbook command
+  hosts: all
+  tasks: 
+    - name: Print a variable 
+      debug:
+        msg: "Value of a = {{a}}"

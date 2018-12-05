@@ -1,0 +1,6 @@
+- name: Variable from inventory hosts file
+  hosts: all
+  tasks: 
+    - name: Print a variable 
+      debug:
+        msg: "Value of a = {{a}}"

@@ -1,0 +1,28 @@
+- name: Demo in conditionals 
+  hosts: all
+  vars: 
+    a: 10
+    b: true
+  tasks:
+  ### Conditions using facts also same for strings
+    - name: Run if this is Ubuntu
+      debug:
+        msg: "Hey Ubuntu"
+      when: ansible_distribution == "Ubuntu"
+    
+    - name: Run if this is CentOS
+      debug:
+        msg: "Hey CentOS"
+      when: ansible_distribution == "CentOS"
+## Conditionals using numbers
+
+    - name: Condition using number
+      debug:
+        msg: "Number condition, {{a}} is greater than 5"
+      when: a > 5
+
+## Conditionals using booleans
+    - name: Boolean condition
+      debug:
+        msg: "Boolean condition is true"
+      when: b is defined

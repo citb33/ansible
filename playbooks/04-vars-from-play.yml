@@ -1,0 +1,8 @@
+- name: Variable on play
+  hosts: all
+  vars:
+    a: 20
+  tasks: 
+    - name: Print a variable 
+      debug:
+        msg: "Value of a = {{a}}"

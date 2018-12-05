@@ -1,0 +1,10 @@
+- name: Print vars from hash 
+  hosts: all
+  vars:
+    a:
+      a1: 100
+      a2: 200
+  tasks: 
+    - name: Print a variable 
+      debug:
+        msg: "Value of a = {{a.a1}}"
