@@ -1,0 +1,10 @@
+- name: Show become and become_user examples
+  hosts: all
+  tasks:
+    - name: check the id of the user
+      shell: id
+      register: out
+      become: yes
+      become_user: test1
+
+    - debug: msg="{{out}}"

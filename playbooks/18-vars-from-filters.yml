@@ -1,0 +1,8 @@
+- name: vars from filters
+  hosts: all
+  vars: 
+    URL: http://mirrors.wuchna.com/apachemirror/tomcat/tomcat-9/v9.0.13/bin/apache-tomcat-9.0.13.tar.gz
+    FILENAME: "{{ URL.split('/') | last }}"
+    DIRNAME: "{{FILENAME | regex_replace('.tar.gz','') }}"
+  tasks:
+    - debug: msg={{DIRNAME}} 

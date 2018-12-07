@@ -1,0 +1,10 @@
+- name: find files
+  hosts: all
+  tasks:
+    - name: Find files in dir 
+      find:
+        paths: /home
+        file_type: any
+      register: out
+
+    - debug: msg={{out}}

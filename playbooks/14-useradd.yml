@@ -1,0 +1,6 @@
+- name: Demo on userad 
+  hosts: all
+  become: yes
+  tasks:
+    - user:
+        name: test1
