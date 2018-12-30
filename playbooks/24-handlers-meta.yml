@@ -1,0 +1,29 @@
+- name: Alternate way to call handlers immediately.
+  hosts: all
+  become: yes
+  handlers: 
+    - name: Start Service
+      service:
+        name: httpd
+        state: restarted
+
+  tasks:
+    - name: Install HTTPD 
+      package:
+        name: httpd
+        state: installed
+      notify: Start Service
+      register: out
+    
+    - debug: msg={{out}}
+
+    - meta: flush_handlers
+
+    - name: Start httpd service 
+      service:
+        name: httpd
+        state: restarted
+      when: out is changed
+
+    - name: Make index.html file 
+      shell: echo Hello >/var/www/html/index.html

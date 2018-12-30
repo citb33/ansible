@@ -1,0 +1,15 @@
+- name: Handlers demo
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install httpd
+      package:
+        name: httpd
+      notify: Start Service
+    
+
+  handlers:
+    - name: Start Service
+      service:
+        name: httpd
+        state: restarted

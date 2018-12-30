@@ -1,0 +1,10 @@
+- name: Copy a template file 
+  hosts: all
+  vars:
+    PORTNO: 80
+    LOCATION: /tmp
+  tasks: 
+    - name: Copy a file 
+      template:
+        src: sample1.txt
+        dest: /tmp/sample1.txt

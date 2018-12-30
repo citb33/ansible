@@ -1,0 +1,4 @@
+- name: Variable overrides from role
+  hosts: all
+  roles:
+    - { role: role_override, NAME: yahoo.com }

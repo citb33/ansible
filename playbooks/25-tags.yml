@@ -1,0 +1,17 @@
+- name: demo on tags
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install httpd
+      package:
+        name: httpd
+        state: installed
+      tags:
+        - HTTPD 
+
+    - name: Install tomcat
+      package:
+        name: tomcat
+        state: installed
+      tags:
+        - TOMCAT
